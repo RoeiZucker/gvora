@@ -54,11 +54,15 @@ app.get("/cats", (req, res, next) => {
 })
 });
 
-
-Kitten.find(function (err, kittens) {
+app.get("/cat", (req, res, next) => {
+ Kitten.find({name:/req.query.name/i},function (err, kittens) {
   if (err) return console.error(err);
-  console.log(kittens);
+  res.json(kittens);
+  //MyModel.find({ name: /john/i }, 'name friends', function (err, docs) { })
+
 })
+});
+
 
 
 db.once('open', function() {
