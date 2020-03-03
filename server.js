@@ -44,6 +44,7 @@ app.get("/addcat", (req, res, next) => {
    fluffy.save(function (err, fluffy) {
     if (err) return console.error(err);
   });
+  res.json({res: "cat added"});
 });
 
 app.get("/cats", (req, res, next) => {
