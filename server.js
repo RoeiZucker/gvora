@@ -39,7 +39,11 @@ app.get("/url", (req, res, next) => {
 
 
 app.get("/addcat", (req, res, next) => {
- console.log(req.query)
+ //console.log(req.query)
+ var fluffy = new Kitten({ name: req.query.name });
+   fluffy.save(function (err, fluffy) {
+    if (err) return console.error(err);
+  });
 });
 
 app.get("/cats", (req, res, next) => {
