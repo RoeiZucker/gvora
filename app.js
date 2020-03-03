@@ -10,7 +10,7 @@ const app = express();
 
 // Set up mongoose connection
 
-const mongoDB = "mongodb://localhost:27017";
+const mongoDB = "mongodb://admin:Aa123456@ds353338.mlab.com:53338/heroku_qbw5r0x2";
 
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
