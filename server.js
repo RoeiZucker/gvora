@@ -29,6 +29,12 @@ app.get("/url", (req, res, next) => {
  res.json(["Tony","Lisa","Michael","Ginger","Food"]);
 });
 
+app.get("/cats", (req, res, next) => {
+ Kitten.find(function (err, kittens) {
+  if (err) return console.error(err);
+  res.json(kittens);
+
+});
 
 
 var kittySchema = new mongoose.Schema({
@@ -36,15 +42,6 @@ var kittySchema = new mongoose.Schema({
 });
 
 var Kitten = mongoose.model('Kitten', kittySchema);
-
-
-var Kitten = mongoose.model('Kitten', kittySchema);
-
-var fluffy = new Kitten({ name: 'fluffy2' });
-
-  fluffy.save(function (err, fluffy) {
-    if (err) return console.error(err);	
-  });
 
 Kitten.find(function (err, kittens) {
   if (err) return console.error(err);
