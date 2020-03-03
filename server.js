@@ -55,7 +55,7 @@ app.get("/cats", (req, res, next) => {
 });
 
 app.get("/cat", (req, res, next) => {
- Kitten.find({name:{$regex : ".*son.*"},function (err, kittens) {
+ Kitten.find({'name':{$regex:'.*'}},function (err, kittens) {
   if (err) return console.error(err);
   res.json(kittens);
   //MyModel.find({ name: /john/i }, 'name friends', function (err, docs) { })
