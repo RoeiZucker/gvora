@@ -29,7 +29,7 @@ app.get("/url", (req, res, next) => {
  res.json(["Tony","Lisa","Michael","Ginger","Food"]);
 });
 
-app.get("/url", (req, res, next) => {
+app.get("/cats", (req, res, next) => {
  Kitten.find(function (err, kittens) {
   if (err) return console.error(err);
   res.json(kittens);
