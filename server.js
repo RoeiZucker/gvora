@@ -39,7 +39,7 @@ app.get("/url", (req, res, next) => {
 
 
 app.get("/addcat", (req, res, next) => {
- res.json(req);
+ console.log(req)
 });
 
 app.get("/cats", (req, res, next) => {
