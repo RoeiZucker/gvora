@@ -25,8 +25,21 @@ app.use('/product', productRouter);
 
 port = process.env.PORT || 3000;
 
+var kittySchema = new mongoose.Schema({
+  name: String
+});
+
+var Kitten = mongoose.model('Kitten', kittySchema);
+
+
+
 app.get("/url", (req, res, next) => {
  res.json(["Tony","Lisa","Michael","Ginger","Food"]);
+});
+
+
+app.get("/addcat", (req, res, next) => {
+ res.json(req);
 });
 
 app.get("/cats", (req, res, next) => {
@@ -36,12 +49,6 @@ app.get("/cats", (req, res, next) => {
 })
 });
 
-
-var kittySchema = new mongoose.Schema({
-  name: String
-});
-
-var Kitten = mongoose.model('Kitten', kittySchema);
 
 Kitten.find(function (err, kittens) {
   if (err) return console.error(err);
