@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/product', productRouter);
 
-const port = 3001;
+const port = 80;
 
 app.get("/url", (req, res, next) => {
  res.json(["Tony","Lisa","Michael","Ginger","Food"]);
