@@ -88,7 +88,7 @@ app.get("/latest", (req, res, next) => {
 
 
 app.get("/story", (req, res, next) => {
- Story.find({'tital':{$regex:'.*' + req.query.tital + '.*'}},function (err, stor) {
+ Story.find({'headline':{$regex:'.*' + req.query.tital + '.*'}},function (err, stor) {
   if (err) return console.error(err);
   res.json(stor);
 })
