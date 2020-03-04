@@ -49,8 +49,8 @@ var Story = mongoose.model('Story', storySchema);
 
 app.get("/addStory", (req, res, next) => {
  //console.log(req.query)
- var story = new Story({ name: req.query.tital, body:req.query.body });
-   fluffy.save(function (err, story) {
+ var addedStory = new Story({ name: req.query.tital, body:req.query.body });
+   addedStory.save(function (err, addedStory) {
     if (err) return console.error(err);
   });
   res.json({res: "story addedd"});
@@ -64,7 +64,7 @@ app.get("/stories", (req, res, next) => {
 })
 });
 
-app.get("/cat", (req, res, next) => {
+app.get("/story", (req, res, next) => {
  stories.find({'tital':{$regex:'.*' + req.query.tital + '.*'}},function (err, stories) {
   if (err) return console.error(err);
   res.json(stories);
