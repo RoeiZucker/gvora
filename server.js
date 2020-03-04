@@ -49,7 +49,7 @@ var Story = mongoose.model('Story', storySchema);
 
 app.get("/addStory", (req, res, next) => {
  //console.log(req.query)
- var addedStory = new Story({ name: req.query.tital, body:req.query.body });
+ var addedStory = new Story({ tital: req.query.tital, body:req.query.body });
    addedStory.save(function (err, addedStory) {
     if (err) return console.error(err);
   });
