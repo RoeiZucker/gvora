@@ -65,11 +65,9 @@ app.get("/stories", (req, res, next) => {
 });
 
 app.get("/story", (req, res, next) => {
- stories.find({'tital':{$regex:'.*' + req.query.tital + '.*'}},function (err, stories) {
+ stories.find({'tital':{$regex:'.*' + req.query.tital + '.*'}},function (err, stor) {
   if (err) return console.error(err);
-  res.json(stories);
-  //MyModel.find({ name: /john/i }, 'name friends', function (err, docs) { })
-
+  res.json(stor);
 })
 });
 
