@@ -79,6 +79,14 @@ app.get("/stories", (req, res, next) => {
 })
 });
 
+app.get("/latest", (req, res, next) => {
+ Story.find().sort({_id: -1}).limit(10).then(stories => {
+    res.json(stories);
+  });
+
+});
+
+
 app.get("/story", (req, res, next) => {
  Story.find({'tital':{$regex:'.*' + req.query.tital + '.*'}},function (err, stor) {
   if (err) return console.error(err);
