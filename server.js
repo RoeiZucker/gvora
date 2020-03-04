@@ -72,9 +72,11 @@ app.get("/story", (req, res, next) => {
 });
 
 app.get("/deletestory", (req, res, next) => {
- Story.find({'id':req.query.id},function (err, stor) {
+ Story.find({'_id':req.query.id},function (err, stor) {
   if (err) return console.error(err);
-  stor.remove()
+    if (stor.length > 0){
+		if(stor[0].id == req.query.id){stor[0].remove() }
+  }
   res.json(stor);
 })
 });
