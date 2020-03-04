@@ -29,12 +29,48 @@ var kittySchema = new mongoose.Schema({
   name: String
 });
 
+
+var storySchema = new mongoose.Schema({
+  tital: String,
+  body: String
+});
+
+
+
 var Kitten = mongoose.model('Kitten', kittySchema);
 
+var Story = mongoose.model('Story', storySchema);
 
 
-app.get("/url", (req, res, next) => {
- res.json(["Tony","Lisa","Michael","Ginger","Food"]);
+
+//app.get("/url", (req, res, next) => {
+// res.json(["Tony","Lisa","Michael","Ginger","Food"]);
+//});
+
+app.get("/addStory", (req, res, next) => {
+ //console.log(req.query)
+ var story = new Story({ name: req.query.tital, body:req.query.body });
+   fluffy.save(function (err, story) {
+    if (err) return console.error(err);
+  });
+  res.json({res: "story addedd"});
+});
+
+
+app.get("/stories", (req, res, next) => {
+ Story.find(function (err, stories) {
+  if (err) return console.error(err);
+  res.json(stories);
+})
+});
+
+app.get("/cat", (req, res, next) => {
+ stories.find({'tital':{$regex:'.*' + req.query.tital + '.*'}},function (err, stories) {
+  if (err) return console.error(err);
+  res.json(stories);
+  //MyModel.find({ name: /john/i }, 'name friends', function (err, docs) { })
+
+})
 });
 
 
