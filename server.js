@@ -31,8 +31,13 @@ var kittySchema = new mongoose.Schema({
 
 
 var storySchema = new mongoose.Schema({
-  tital: String,
-  body: String
+	nameSurvivor : String,
+	email : String,
+	longitude : String,
+	latitude : String,
+	dateStory : String,
+	story : String,
+	headline : String
 });
 
 
@@ -49,7 +54,17 @@ var Story = mongoose.model('Story', storySchema);
 
 app.get("/addStory", (req, res, next) => {
  //console.log(req.query)
- var addedStory = new Story({ tital: req.query.tital, body:req.query.body });
+ var addedStory = new Story(
+	{ 
+		nameSurvivor : req.query.nameSurvivor,
+		email : req.query.email,
+		longitude : req.query.longitude,
+		latitude : req.query.latitude,
+		dateStory : req.query.dateStory,
+		story : req.query.story,
+		headline : req.query.headline
+	}
+	);
    addedStory.save(function (err, addedStory) {
     if (err) return console.error(err);
   });
