@@ -94,6 +94,13 @@ app.get("/story", (req, res, next) => {
 })
 });
 
+app.get("/storyid", (req, res, next) => {
+ Story.findById(req.query.id,function (err, stor) {
+  if (err) return console.error(err);
+  res.json(stor);
+})
+});
+
 app.get("/deletestory", (req, res, next) => {
  Story.find({'_id':req.query.id},function (err, stor) {
   if (err) return console.error(err);
