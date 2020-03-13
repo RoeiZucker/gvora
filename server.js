@@ -72,6 +72,25 @@ app.get("/addStory", (req, res, next) => {
 });
 
 
+app.post("/addStory", (req, res, next) => {
+  //console.log(req.body)
+   var addedStory = new Story(
+	{ 
+		nameSurvivor : req.body.nameSurvivor,
+		email : req.body.email,
+		longitude : req.body.longitude,
+		latitude : req.body.latitude,
+		dateStory : req.body.dateStory,
+		story : req.body.story,
+		headline : req.body.headline
+	}
+	);
+	 addedStory.save(function (err, addedStory) {
+    if (err) return console.error(err);
+  });
+  res.json({res: "story addedd"});
+});
+
 app.get("/stories", (req, res, next) => {
  Story.find(function (err, stories) {
   if (err) return console.error(err);
