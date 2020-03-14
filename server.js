@@ -73,7 +73,7 @@ app.get("/addStory", (req, res, next) => {
 
 
 app.post("/addStory", (req, res, next) => {
-  //console.log(req.body)
+  console.log(req.body)
    var addedStory = new Story(
 	{ 
 		nameSurvivor : req.body.nameSurvivor,
