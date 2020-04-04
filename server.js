@@ -101,7 +101,7 @@ app.get("/stories", (req, res, next) => {
 });
 
 app.get("/latest", (req, res, next) => {
- Story.find().sort({_id: -1}).limit(10).then(stories => {
+ Story.find({display:false}).sort({_id: -1}).limit(10).then(stories => {
     res.json(stories);
   });
 
