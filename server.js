@@ -62,7 +62,8 @@ app.get("/addStory", (req, res, next) => {
 		latitude : req.query.latitude,
 		dateStory : req.query.dateStory,
 		story : req.query.story,
-		headline : req.query.headline
+		headline : req.query.headline,
+		display:false
 	}
 	);
    addedStory.save(function (err, addedStory) {
@@ -82,7 +83,8 @@ app.post("/addStory", (req, res, next) => {
 		latitude : req.body.latitude,
 		dateStory : req.body.dateStory,
 		story : req.body.story,
-		headline : req.body.headline
+		headline : req.body.headline,
+		display:false
 	}
 	);
 	 addedStory.save(function (err, addedStory) {
@@ -92,7 +94,7 @@ app.post("/addStory", (req, res, next) => {
 });
 
 app.get("/stories", (req, res, next) => {
- Story.find(function (err, stories) {
+ Story.find({'display':true},function (err, stories) {
   if (err) return console.error(err);
   res.json(stories);
 })
