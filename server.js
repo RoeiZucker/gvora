@@ -37,7 +37,7 @@ var storySchema = new mongoose.Schema({
 	latitude : String,
 	dateStory : String,
 	story : String,
-	headline : String
+	headline : String,
 	display: Boolean
 });
 
