@@ -38,7 +38,7 @@ var storySchema = new mongoose.Schema({
 	dateStory : String,
 	story : String,
 	headline : String
-	display: boolean
+	display: Boolean
 });
 
 
