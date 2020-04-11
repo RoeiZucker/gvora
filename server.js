@@ -38,6 +38,7 @@ var storySchema = new mongoose.Schema({
 	dateStory : String,
 	story : String,
 	headline : String,
+	location:String,
 	display: Boolean
 });
 
@@ -64,6 +65,7 @@ app.get("/addStory", (req, res, next) => {
 		dateStory : req.query.dateStory,
 		story : req.query.story,
 		headline : req.query.headline,
+		location:req.body.location,
 		display:false
 	}
 	);
@@ -85,6 +87,7 @@ app.post("/addStory", (req, res, next) => {
 		dateStory : req.body.dateStory,
 		story : req.body.story,
 		headline : req.body.headline,
+		location:req.body.location,
 		display:false
 	}
 	);
