@@ -102,10 +102,14 @@ app.get("/stories", (req, res, next) => {
 });
 
 app.get("/latest", (req, res, next) => {
- Story.find({display:true}).sort({_id: -1}).limit(10).then(stories => {
+// Story.find({display:true}).sort({_id: -1}).limit(10).then(stories => {
+//    res.json(stories);
+//  });
+	Story.aggregate(
+   [ { $match: { display:true}},{ $sample: { size: 6 } } ]
+	).then(stories => {
     res.json(stories);
   });
-
 });
 
 
