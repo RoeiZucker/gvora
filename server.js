@@ -65,7 +65,7 @@ app.get("/addStory", (req, res, next) => {
 		dateStory : req.query.dateStory,
 		story : req.query.story,
 		headline : req.query.headline,
-		location:req.body.location,
+		location:req.query.location,
 		display:false
 	}
 	);
